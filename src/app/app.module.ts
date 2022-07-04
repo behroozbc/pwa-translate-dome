@@ -8,7 +8,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient,'/pwa-translate-dome/');
+  return new TranslateHttpLoader(httpClient,'./assets/i18n/');
 }
 @NgModule({
   declarations: [
