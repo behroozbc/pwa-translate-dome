@@ -6,10 +6,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient,'/pwa-translate-dome/assets/i18n/');
-}
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +17,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (httpClient: HttpClient)=>new TranslateHttpLoader(httpClient),
+        useFactory: (httpClient: HttpClient)=>new TranslateHttpLoader(httpClient,'./assets/i18n/'),
         deps: [HttpClient]
       }
     }),
